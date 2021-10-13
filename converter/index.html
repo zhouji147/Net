@@ -1,0 +1,1286 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Net document">
+      
+      
+      
+        <meta name="author" content="drake">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.3">
+    
+    
+      
+        <title>创建转换器 - Net</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.5143246d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
+      
+    
+    
+    
+      
+    
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="drake" data-md-color-primary="white" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Net" class="md-header__button md-logo" aria-label="Net" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Net
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              创建转换器
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/liangjingkanji/Net/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Net" class="md-nav__button md-logo" aria-label="Net" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Net
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/liangjingkanji/Net/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        使用
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../coroutine-request/" class="md-nav__link">
+        协程请求
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sync-request/" class="md-nav__link">
+        同步请求
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../view-model/" class="md-nav__link">
+        ViewModel
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../request/" class="md-nav__link">
+        请求对象
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/" class="md-nav__link">
+        全局配置
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          转换数据
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="转换数据" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          转换数据
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          创建转换器
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        创建转换器
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    默认返回数据类型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    设置转换器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#json" class="md-nav__link">
+    Json解析库转换器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    自定义转换器
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../convert-special/" class="md-nav__link">
+        特殊结构解析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kotlin-serialization/" class="md-nav__link">
+        kotlin-serialization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../model-generate/" class="md-nav__link">
+        数据模型生成插件
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          自动化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="自动化" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          自动化
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auto-dialog/" class="md-nav__link">
+        自动加载框
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auto-state/" class="md-nav__link">
+        自动缺省页
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auto-refresh/" class="md-nav__link">
+        自动下拉刷新
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auto-page/" class="md-nav__link">
+        自动分页加载
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scope/" class="md-nav__link">
+        创建作用域
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../switch-thread/" class="md-nav__link">
+        切换线程
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../okhttp-client/" class="md-nav__link">
+        OkHttpClient
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../error-handle/" class="md-nav__link">
+        错误处理
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exception-track/" class="md-nav__link">
+        定位异常
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interceptor/" class="md-nav__link">
+        拦截器
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tag/" class="md-nav__link">
+        标签
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../upload-file/" class="md-nav__link">
+        上传文件
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../download-file/" class="md-nav__link">
+        下载文件
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../progress/" class="md-nav__link">
+        进度监听
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cancel/" class="md-nav__link">
+        取消请求
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../https/" class="md-nav__link">
+        Https证书
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unique/" class="md-nav__link">
+        重复请求
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../debounce/" class="md-nav__link">
+        节流阀
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastest/" class="md-nav__link">
+        最快请求结果
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../log-recorder/" class="md-nav__link">
+        日志拦截器
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interval/" class="md-nav__link">
+        轮循器/倒计时
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../callback/" class="md-nav__link">
+        Callback
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../updates/" class="md-nav__link">
+        更新日志
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        3.x文档
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    默认返回数据类型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    设置转换器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#json" class="md-nav__link">
+    Json解析库转换器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    自定义转换器
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/liangjingkanji/Net/edit/master/docs/converter.md" title="编辑此页" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  <h1>创建转换器</h1>
+                
+                <p>Net可以通过自定义转换器支持任何数据类型转换, 甚至<code>List&lt;List&lt;UserModel&gt;&gt;</code>等嵌套泛型对象</p>
+<p>例如请求动作Post<code>指定泛型为Model</code>, 则转换器NetConverter中的函数<code>onConvert返回值必须为Model</code>, 如果转换失败或者发生异常都算请求错误</p>
+<blockquote>
+<p>注意如果你在转换器里面返回null. 那么指定的泛型也应当是可空类型, 例如<code>Post&lt;String?&gt;("api")</code></p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="n">scopeNetLife</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="nv">userList</span> <span class="o">=</span> <span class="n">Get</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">UserModel</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="s">&quot;list&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">converter</span> <span class="o">=</span> <span class="n">GsonConverter</span><span class="p">()</span>
+    <span class="p">}.</span><span class="na">await</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><br></p>
+<p>如果你要返回映射好的数据模型对象, 那么肯定要求创建转换器的. 本框架由于低耦合原则不自带解析框架</p>
+<p><a href="https://github.com/liangjingkanji/Net/tree/master/sample/src/main/java/com/drake/net/sample/converter">常用的Json转换器-代码示例</a></p>
+<p><img src="https://i.loli.net/2021/05/18/yUBmka6AjKsVleP.png" width="300"/></p>
+<h2 id="_1">默认返回数据类型<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Net支持请求返回的数据类型取决于你的转换器(也就是支持返回任何对象), 默认情况不创建转换器也支持返回以下数据类型</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>String</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>ByteArray</td>
+<td>字节数组</td>
+</tr>
+<tr>
+<td>ByteString</td>
+<td>内部定义的一种字符串对象</td>
+</tr>
+<tr>
+<td>Response</td>
+<td>最基础的响应</td>
+</tr>
+<tr>
+<td>File</td>
+<td>文件对象, 这种情况其实应当称为<a href="../download-file/">下载文件</a></td>
+</tr>
+</tbody>
+</table>
+<p>使用示例</p>
+<div class="highlight"><pre><span></span><code><span class="n">scopeNetLife</span> <span class="p">{</span>
+    <span class="n">Get</span><span class="o">&lt;</span><span class="n">Response</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;api&quot;</span><span class="p">).</span><span class="na">await</span><span class="p">().</span><span class="na">headers</span><span class="p">(</span><span class="s">&quot;响应头名称&quot;</span><span class="p">)</span> <span class="c1">// 返回响应头</span>
+<span class="p">}</span>
+</code></pre></div>
+<details class="summary"><summary>默认使用的是: <a href="https://github.com/liangjingkanji/Net/blob/master/net/src/main/java/com/drake/net/convert/NetConverter.kt">NetConverter.DEFAULT</a></summary><div class="highlight"><pre><span></span><code><span class="kd">val</span> <span class="nv">DEFAULT</span> <span class="o">=</span> <span class="k">object</span> <span class="p">:</span> <span class="nc">NetConverter</span> <span class="p">{</span>
+
+    <span class="kd">override</span> <span class="kd">fun</span> <span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span> <span class="nf">onConvert</span><span class="p">(</span>
+        <span class="n">succeed</span><span class="p">:</span> <span class="n">Type</span><span class="p">,</span>
+        <span class="n">response</span><span class="p">:</span> <span class="n">Response</span>
+    <span class="p">):</span> <span class="n">R? </span><span class="p">{</span>
+        <span class="k">return</span> <span class="k">when</span> <span class="p">(</span><span class="n">succeed</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">String</span><span class="o">::</span><span class="n">class</span><span class="p">.</span><span class="na">java</span> <span class="o">-&gt;</span> <span class="n">response</span><span class="p">.</span><span class="na">body</span><span class="o">?.</span><span class="na">string</span><span class="p">()</span> <span class="k">as</span> <span class="n">R</span>
+            <span class="n">ByteString</span><span class="o">::</span><span class="n">class</span><span class="p">.</span><span class="na">java</span> <span class="o">-&gt;</span> <span class="n">response</span><span class="p">.</span><span class="na">body</span><span class="o">?.</span><span class="na">byteString</span><span class="p">()</span> <span class="k">as</span> <span class="n">R</span>
+            <span class="n">ByteArray</span><span class="o">::</span><span class="n">class</span><span class="p">.</span><span class="na">java</span> <span class="o">-&gt;</span> <span class="n">response</span><span class="p">.</span><span class="na">body</span><span class="o">?.</span><span class="na">bytes</span><span class="p">()</span> <span class="k">as</span> <span class="n">R</span>
+            <span class="n">Response</span><span class="o">::</span><span class="n">class</span><span class="p">.</span><span class="na">java</span> <span class="o">-&gt;</span> <span class="n">response</span> <span class="k">as</span> <span class="n">R</span>
+            <span class="n">File</span><span class="o">::</span><span class="n">class</span><span class="p">.</span><span class="na">java</span> <span class="o">-&gt;</span> <span class="n">response</span><span class="p">.</span><span class="na">file</span><span class="p">()</span> <span class="k">as</span> <span class="n">R</span>
+            <span class="k">else</span> <span class="o">-&gt;</span> <span class="k">throw</span> <span class="n">ConvertException</span><span class="p">(</span>
+                <span class="n">response</span><span class="p">,</span>
+                <span class="s">&quot;The default converter does not support this type&quot;</span>
+            <span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<p>假设这里没有你需要的数据类型请<a href="#_3">自定义转换器</a>(例如返回Json或Protocol)</p>
+<h2 id="_2">设置转换器<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>转换器分为全局和单例, 单例可以覆盖全局的转换器. 如果不设置转换器就会采用默认的转换器</p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">全局</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="n">NetConfig</span><span class="p">.</span><span class="na">init</span><span class="p">(</span><span class="s">&quot;http://github.com/&quot;</span><span class="p">)</span> <span class="p">{</span>
+<span class="hll">    <span class="n">setConverter</span><span class="p">(</span><span class="n">SerializationConverter</span><span class="p">())</span>
+</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">单例</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="n">scopeNetLife</span> <span class="p">{</span>
+    <span class="n">tvFragment</span><span class="p">.</span><span class="na">text</span> <span class="o">=</span> <span class="n">Get</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;api&quot;</span><span class="p">){</span>
+<span class="hll">        <span class="n">converter</span> <span class="o">=</span> <span class="n">SerializationConverter</span><span class="p">()</span>
+</span>    <span class="p">}.</span><span class="na">await</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<h2 id="json">Json解析库转换器<a class="headerlink" href="#json" title="Permanent link">&para;</a></h2>
+<p>一般业务我们可以直接继承<a href="https://github.com/liangjingkanji/Net/blob/master/net/src/main/java/com/drake/net/convert/JSONConvert.kt">JSONConverter</a>
+使用自己的JSON解析器解析数据, 完全自定义需求可以直接实现<a href="https://github.com/liangjingkanji/Net/blob/master/net/src/main/java/com/drake/net/convert/NetConverter.kt">NetConverter</a>(比如直接转换IO流)</p>
+<div class="tabbed-set" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Gson</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">GsonConvert</span> <span class="p">:</span> <span class="n">JSONConvert</span><span class="p">(</span><span class="n">code</span> <span class="o">=</span> <span class="s">&quot;code&quot;</span><span class="p">,</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;msg&quot;</span><span class="p">,</span> <span class="n">success</span> <span class="o">=</span> <span class="s">&quot;200&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="nv">gson</span> <span class="o">=</span> <span class="n">GsonBuilder</span><span class="p">().</span><span class="na">serializeNulls</span><span class="p">().</span><span class="na">create</span><span class="p">()</span>
+
+    <span class="kd">override</span> <span class="kd">fun</span> <span class="o">&lt;</span><span class="n">S</span><span class="o">&gt;</span> <span class="n">String</span><span class="p">.</span><span class="nf">parseBody</span><span class="p">(</span><span class="n">succeed</span><span class="p">:</span> <span class="n">Type</span><span class="p">):</span> <span class="n">S? </span><span class="p">{</span>
+        <span class="k">return</span> <span class="n">gson</span><span class="p">.</span><span class="na">fromJson</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">succeed</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">kotlin-serialization</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">SerializationConverter</span><span class="p">(</span>
+    <span class="kd">val</span> <span class="nv">success</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&quot;0&quot;</span><span class="p">,</span>
+    <span class="kd">val</span> <span class="nv">code</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&quot;code&quot;</span><span class="p">,</span>
+    <span class="kd">val</span> <span class="nv">message</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&quot;msg&quot;</span>
+<span class="p">)</span> <span class="p">:</span> <span class="n">NetConverter</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="kd">val</span> <span class="nv">jsonDecoder</span> <span class="o">=</span> <span class="n">Json</span> <span class="p">{</span>
+        <span class="n">ignoreUnknownKeys</span> <span class="o">=</span> <span class="kc">true</span> <span class="c1">// JSON和数据模型字段可以不匹配</span>
+        <span class="n">coerceInputValues</span> <span class="o">=</span> <span class="kc">true</span> <span class="c1">// 如果JSON字段是Null则使用默认值</span>
+    <span class="p">}</span>
+
+    <span class="kd">override</span> <span class="kd">fun</span> <span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span> <span class="nf">onConvert</span><span class="p">(</span><span class="n">succeed</span><span class="p">:</span> <span class="n">Type</span><span class="p">,</span> <span class="n">response</span><span class="p">:</span> <span class="n">Response</span><span class="p">):</span> <span class="n">R? </span><span class="p">{</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">NetConverter</span><span class="p">.</span><span class="na">onConvert</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">succeed</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ConvertException</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">val</span> <span class="nv">code</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="na">code</span>
+            <span class="k">when</span> <span class="p">{</span>
+                <span class="n">code</span> <span class="k">in</span> <span class="m">200.</span><span class="p">.</span><span class="m">299</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="c1">// 请求成功</span>
+                    <span class="kd">val</span> <span class="nv">bodyString</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="na">body</span><span class="o">?.</span><span class="na">string</span><span class="p">()</span> <span class="o">?:</span> <span class="k">return</span> <span class="kc">null</span>
+                    <span class="kd">val</span> <span class="nv">kType</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="na">request</span><span class="p">.</span><span class="na">kType</span><span class="p">()</span> <span class="o">?:</span> <span class="k">return</span> <span class="kc">null</span>
+                    <span class="k">return</span> <span class="k">try</span> <span class="p">{</span>
+                        <span class="kd">val</span> <span class="nv">json</span> <span class="o">=</span> <span class="n">JSONObject</span><span class="p">(</span><span class="n">bodyString</span><span class="p">)</span> <span class="c1">// 获取JSON中后端定义的错误码和错误信息</span>
+                        <span class="k">if</span> <span class="p">(</span><span class="n">json</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">code</span><span class="p">)</span> <span class="o">==</span> <span class="n">success</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 对比后端自定义错误码</span>
+                            <span class="n">bodyString</span><span class="p">.</span><span class="na">parseBody</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">kType</span><span class="p">)</span>
+                        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">// 错误码匹配失败, 开始写入错误异常</span>
+                            <span class="kd">val</span> <span class="nv">errorMessage</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="na">optString</span><span class="p">(</span>
+                                <span class="n">message</span><span class="p">,</span>
+                                <span class="n">NetConfig</span><span class="p">.</span><span class="na">app</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="n">com</span><span class="p">.</span><span class="na">drake</span><span class="p">.</span><span class="na">net</span><span class="p">.</span><span class="na">R</span><span class="p">.</span><span class="na">string</span><span class="p">.</span><span class="na">no_error_message</span><span class="p">)</span>
+                            <span class="p">)</span>
+                            <span class="k">throw</span> <span class="n">ResponseException</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">errorMessage</span><span class="p">)</span>
+                        <span class="p">}</span>
+                    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">JSONException</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 固定格式JSON分析失败直接解析JSON</span>
+                        <span class="n">bodyString</span><span class="p">.</span><span class="na">parseBody</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">kType</span><span class="p">)</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+                <span class="n">code</span> <span class="k">in</span> <span class="m">400.</span><span class="p">.</span><span class="m">499</span> <span class="o">-&gt;</span> <span class="k">throw</span> <span class="n">RequestParamsException</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">code</span><span class="p">.</span><span class="na">toString</span><span class="p">())</span> <span class="c1">// 请求参数错误</span>
+                <span class="n">code</span> <span class="o">&gt;=</span> <span class="m">500</span> <span class="o">-&gt;</span> <span class="k">throw</span> <span class="n">ServerResponseException</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">code</span><span class="p">.</span><span class="na">toString</span><span class="p">())</span> <span class="c1">// 服务器异常错误</span>
+                <span class="k">else</span> <span class="o">-&gt;</span> <span class="k">throw</span> <span class="n">ConvertException</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">fun</span> <span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span> <span class="n">String</span><span class="p">.</span><span class="nf">parseBody</span><span class="p">(</span><span class="n">succeed</span><span class="p">:</span> <span class="n">KType</span><span class="p">):</span> <span class="n">R? </span><span class="p">{</span>
+        <span class="k">return</span> <span class="n">jsonDecoder</span><span class="p">.</span><span class="na">decodeFromString</span><span class="p">(</span><span class="n">Json</span><span class="p">.</span><span class="na">serializersModule</span><span class="p">.</span><span class="na">serializer</span><span class="p">(</span><span class="n">succeed</span><span class="p">),</span> <span class="k">this</span><span class="p">)</span> <span class="k">as</span> <span class="n">R</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>SerializationConverter就是仿照JSONConverter代码实现</p>
+</div>
+<input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><label for="__tabbed_2_3">FastJson</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">FastJsonConvert</span> <span class="p">:</span> <span class="n">JSONConvert</span><span class="p">(</span><span class="n">code</span> <span class="o">=</span> <span class="s">&quot;code&quot;</span><span class="p">,</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;msg&quot;</span><span class="p">,</span> <span class="n">success</span> <span class="o">=</span> <span class="s">&quot;200&quot;</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="kd">override</span> <span class="kd">fun</span> <span class="o">&lt;</span><span class="n">S</span><span class="o">&gt;</span> <span class="n">String</span><span class="p">.</span><span class="nf">parseBody</span><span class="p">(</span><span class="n">succeed</span><span class="p">:</span> <span class="n">Type</span><span class="p">):</span> <span class="n">S? </span><span class="p">{</span>
+        <span class="k">return</span> <span class="n">JSON</span><span class="p">.</span><span class="na">parseObject</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">succeed</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><label for="__tabbed_2_4">Moshi</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">MoshiConvert</span> <span class="p">:</span> <span class="n">JSONConvert</span><span class="p">(</span><span class="n">code</span> <span class="o">=</span> <span class="s">&quot;code&quot;</span><span class="p">,</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;msg&quot;</span><span class="p">,</span> <span class="n">success</span> <span class="o">=</span> <span class="s">&quot;200&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="nv">moshi</span> <span class="o">=</span> <span class="n">Moshi</span><span class="p">.</span><span class="na">Builder</span><span class="p">().</span><span class="na">build</span><span class="p">()</span>
+
+    <span class="kd">override</span> <span class="kd">fun</span> <span class="o">&lt;</span><span class="n">S</span><span class="o">&gt;</span> <span class="n">String</span><span class="p">.</span><span class="nf">parseBody</span><span class="p">(</span><span class="n">succeed</span><span class="p">:</span> <span class="n">Type</span><span class="p">):</span> <span class="n">S? </span><span class="p">{</span>
+        <span class="k">return</span> <span class="n">moshi</span><span class="p">.</span><span class="na">adapter</span><span class="o">&lt;</span><span class="n">S</span><span class="o">&gt;</span><span class="p">(</span><span class="n">succeed</span><span class="p">).</span><span class="na">fromJson</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<ol>
+<li>使用转换器时请添加其依赖:     <a href="https://github.com/google/gson">GSON</a> | <a href="https://github.com/Kotlin/kotlinx.serialization">kotlin-serialization</a> | <a href="https://github.com/alibaba/fastjson">FastJson</a> | <a href="https://github.com/square/moshi">Moshi</a></li>
+<li>推荐使用 <code>kotlinx.Serialization</code>, 其可解析<a href="../kotlin-serialization/">任何泛型</a></li>
+<li>Sample有完整代码示例</li>
+</ol>
+<p>以上转换器示例是建立在数据结构为以下表格的固定格式下, 如果有特殊的业务可能需要自行修改</p>
+<table>
+<thead>
+<tr>
+<th>转换器参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>即后端定义的<code>成功码</code>字段名</td>
+</tr>
+<tr>
+<td>message</td>
+<td>即后端定义的<code>错误消息</code>字段名</td>
+</tr>
+<tr>
+<td>success</td>
+<td>即<code>成功码</code>的值等于指定时才算网络请求成功</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://i.loli.net/2021/08/14/cLYiTVQkC4uKeGr.png" width="450"/></p>
+<p>比如截图中的意为, 当返回的Json中包含state字段且值为ok时请求才算是真正成功才会返回数据, 否则都会抛出异常. 其中message为错误信息字段名</p>
+<p>假设简单的指定名称不能满足你复杂的业务逻辑, 请复制<code>JSONConvert</code>源码到你项目中修改或者直接自己实现<code>NetConverter</code></p>
+<blockquote>
+<p>注意解析器(Gson或者Moshi)的解析对象记得定义为类成员, 这样可以不会导致每次解析都要创建一个新的解析对象, 减少内存消耗
+<br></p>
+</blockquote>
+<h2 id="_3">自定义转换器<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>通过实现<code>NetConverter</code>接口可以编写自己的逻辑网络请求返回的数据, <code>NetConvert.DEFAULT</code>为默认的转换器支持返回File/String/Response等</p>
+<p>框架中自带一个<code>JSONConverter</code>可以作为参考或者直接使用. 其可以转换JSON数据.</p>
+<details class="summary"><summary>JSONConverter 源码</summary><div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * 常见的JSON转换器实现, 如果不满意继承实现自定义的业务逻辑</span>
+<span class="cm"> *</span>
+<span class="cm"> * @param success  后端定义为成功状态的错误码值</span>
+<span class="cm"> * @param code  错误码在JSON中的字段名</span>
+<span class="cm"> * @param message  错误信息在JSON中的字段名</span>
+<span class="cm"> */</span>
+<span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">JSONConvert</span><span class="p">(</span>
+    <span class="kd">val</span> <span class="nv">success</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&quot;0&quot;</span><span class="p">,</span>
+    <span class="kd">val</span> <span class="nv">code</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&quot;code&quot;</span><span class="p">,</span>
+    <span class="kd">val</span> <span class="nv">message</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&quot;msg&quot;</span>
+<span class="p">)</span> <span class="p">:</span> <span class="n">NetConverter</span> <span class="p">{</span>
+
+    <span class="kd">override</span> <span class="kd">fun</span> <span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span> <span class="nf">onConvert</span><span class="p">(</span><span class="n">succeed</span><span class="p">:</span> <span class="n">Type</span><span class="p">,</span> <span class="n">response</span><span class="p">:</span> <span class="n">Response</span><span class="p">):</span> <span class="n">R? </span><span class="p">{</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">NetConverter</span><span class="p">.</span><span class="na">onConvert</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">succeed</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ConvertException</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">val</span> <span class="nv">code</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="na">code</span>
+            <span class="k">when</span> <span class="p">{</span>
+                <span class="n">code</span> <span class="k">in</span> <span class="m">200.</span><span class="p">.</span><span class="m">299</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="c1">// 请求成功</span>
+                    <span class="kd">val</span> <span class="nv">bodyString</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="na">body</span><span class="o">?.</span><span class="na">string</span><span class="p">()</span> <span class="o">?:</span> <span class="k">return</span> <span class="kc">null</span>
+                    <span class="k">return</span> <span class="k">try</span> <span class="p">{</span>
+                        <span class="kd">val</span> <span class="nv">json</span> <span class="o">=</span> <span class="n">JSONObject</span><span class="p">(</span><span class="n">bodyString</span><span class="p">)</span> <span class="c1">// 获取JSON中后端定义的错误码和错误信息</span>
+                        <span class="k">if</span> <span class="p">(</span><span class="n">json</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">code</span><span class="p">)</span> <span class="o">==</span> <span class="n">success</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 对比后端自定义错误码</span>
+                            <span class="n">bodyString</span><span class="p">.</span><span class="na">parseBody</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">succeed</span><span class="p">)</span>
+                        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">// 错误码匹配失败, 开始写入错误异常</span>
+                            <span class="kd">val</span> <span class="nv">errorMessage</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="na">optString</span><span class="p">(</span>
+                                <span class="n">message</span><span class="p">,</span>
+                                <span class="n">NetConfig</span><span class="p">.</span><span class="na">app</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="n">com</span><span class="p">.</span><span class="na">drake</span><span class="p">.</span><span class="na">net</span><span class="p">.</span><span class="na">R</span><span class="p">.</span><span class="na">string</span><span class="p">.</span><span class="na">no_error_message</span><span class="p">)</span>
+                            <span class="p">)</span>
+                            <span class="k">throw</span> <span class="n">ResponseException</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">errorMessage</span><span class="p">)</span>
+                        <span class="p">}</span>
+                    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">JSONException</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 固定格式JSON分析失败直接解析JSON</span>
+                        <span class="n">bodyString</span><span class="p">.</span><span class="na">parseBody</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">succeed</span><span class="p">)</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+                <span class="n">code</span> <span class="k">in</span> <span class="m">400.</span><span class="p">.</span><span class="m">499</span> <span class="o">-&gt;</span> <span class="k">throw</span> <span class="n">RequestParamsException</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">code</span><span class="p">.</span><span class="na">toString</span><span class="p">())</span> <span class="c1">// 请求参数错误</span>
+                <span class="n">code</span> <span class="o">&gt;=</span> <span class="m">500</span> <span class="o">-&gt;</span> <span class="k">throw</span> <span class="n">ServerResponseException</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">code</span><span class="p">.</span><span class="na">toString</span><span class="p">())</span> <span class="c1">// 服务器异常错误</span>
+                <span class="k">else</span> <span class="o">-&gt;</span> <span class="k">throw</span> <span class="n">ConvertException</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * 反序列化JSON</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param succeed JSON对象的类型</span>
+<span class="cm">     * @receiver 原始字符串</span>
+<span class="cm">     */</span>
+    <span class="kd">abstract</span> <span class="kd">fun</span> <span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span> <span class="n">String</span><span class="p">.</span><span class="nf">parseBody</span><span class="p">(</span><span class="n">succeed</span><span class="p">:</span> <span class="n">Type</span><span class="p">):</span> <span class="n">R?</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<p>JSONConvert的核心逻辑</p>
+<ol>
+<li>判断服务器的错误码</li>
+<li>判断后端自定义的错误码</li>
+<li>如果判断发生错误则抛出一个包含错误信息的异常</li>
+<li>如果都判断成功则开始解析数据并return数据对象</li>
+</ol>
+<p>在转换器中根据需要你可以在这里加上常见的解密数据, token失效跳转登录, 限制多端登录等逻辑. 日志信息输出请阅读: <a href="../log-recorder/">日志记录器</a></p>
+<p>如果是错误信息建议抛出异常, 就可以在全局异常处理器中统一处理, 请阅读:<a href="../error-handle/">全局错误处理</a></p>
+<p><br></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <!--
+  ~ Copyright (C) 2018 Drake, Inc.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+
+<!-- Footer -->
+<footer class="md-footer">
+
+    <!-- Link to previous and/or next page -->
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+
+        <!-- Link to previous page -->
+        
+        <a href="../config/" class="md-footer__link md-footer__link--prev" rel="prev">
+            <div class="md-footer__button md-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer__title">
+                <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+                    全局配置
+                </div>
+            </div>
+        </a>
+        
+
+        <!-- Link to next page -->
+        
+        <a href="../convert-special/" class="md-footer__link md-footer__link--next" rel="next">
+            <div class="md-footer__title">
+                <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+                    特殊结构解析
+                </div>
+            </div>
+            <div class="md-footer__button md-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+        </a>
+        
+    </nav>
+    
+
+    <!-- Further information -->
+    <div class="md-footer-meta md-typeset">
+        <div class="md-footer-meta__inner md-grid">
+
+            <!-- Copyright and theme information -->
+            <div class="md-footer-copyright">
+                
+                <a href="https://github.com/liangjingkanji" target="_blank" rel="noopener">
+                    <div class="md-footer-copyright__highlight">
+                        Copyright &copy; 2018 - 2020 劉強東
+                    </div>
+                </a>
+                
+                
+            </div>
+
+            <!-- Social links -->
+            
+        </div>
+    </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.highlight"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f89c2efe.min.js"></script>
+      
+    
+  </body>
+</html>
